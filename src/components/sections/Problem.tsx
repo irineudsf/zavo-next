@@ -1,7 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { SpotlightCard } from '@/components/ui/SpotlightCard'
+import { GlowCard } from '@/components/ui/spotlight-card'
 
 const dores = [
   {
@@ -24,8 +24,7 @@ const dores = [
 const cardVariant = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
+    opacity: 1, y: 0,
     transition: { delay: i * 0.15, duration: 0.55, type: 'tween' as const },
   }),
 }
@@ -43,7 +42,6 @@ export function Problem() {
     <section style={{ background: '#fff', padding: '96px 24px' }} ref={ref}>
       <div style={{ maxWidth: 1080, margin: '0 auto' }}>
 
-        {/* Texto da seção */}
         <motion.div
           variants={textVariant}
           initial="hidden"
@@ -63,7 +61,6 @@ export function Problem() {
           </p>
         </motion.div>
 
-        {/* Cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
           {dores.map((d, i) => (
             <motion.div
@@ -73,23 +70,25 @@ export function Problem() {
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
             >
-              <SpotlightCard style={{ padding: '32px 28px 36px' }}>
-                <div style={{
-                  width: 52, height: 52,
-                  background: '#0D0D0D',
-                  borderRadius: 14,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: 20, fontSize: 24,
-                }}>
-                  {d.icone}
+              <GlowCard customSize glowColor="amber" width="100%">
+                <div style={{ padding: '32px 28px 36px' }}>
+                  <div style={{
+                    width: 52, height: 52,
+                    background: '#0D0D0D',
+                    borderRadius: 14,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    marginBottom: 20, fontSize: 24,
+                  }}>
+                    {d.icone}
+                  </div>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 10, letterSpacing: -0.3, color: '#0D0D0D' }}>
+                    {d.titulo}
+                  </h3>
+                  <p style={{ fontSize: 14, color: '#666', lineHeight: 1.7 }}>
+                    {d.texto}
+                  </p>
                 </div>
-                <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 10, letterSpacing: -0.3, color: '#0D0D0D' }}>
-                  {d.titulo}
-                </h3>
-                <p style={{ fontSize: 14, color: '#666', lineHeight: 1.7 }}>
-                  {d.texto}
-                </p>
-              </SpotlightCard>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
