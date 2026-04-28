@@ -73,32 +73,22 @@ export function Problem() {
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
             >
-              <SpotlightCard>
+              <SpotlightCard style={{ padding: '32px 28px 36px' }}>
                 <div style={{
-                  background: '#F5F5F5',
-                  borderRadius: 16,
-                  padding: '32px 28px 36px',
-                  border: '1px solid #E8E8E8',
-                  transition: 'border-color 0.3s, box-shadow 0.3s',
-                  cursor: 'default',
+                  width: 52, height: 52,
+                  background: '#0D0D0D',
+                  borderRadius: 14,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: 20, fontSize: 24,
                 }}>
-                  {/* Ícone com fundo âmbar sutil no hover — via CSS var não dá, uso JS */}
-                  <div style={{
-                    width: 52, height: 52,
-                    background: '#0D0D0D',
-                    borderRadius: 14,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: 20, fontSize: 24,
-                  }}>
-                    {d.icone}
-                  </div>
-                  <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 10, letterSpacing: -0.3, color: '#0D0D0D' }}>
-                    {d.titulo}
-                  </h3>
-                  <p style={{ fontSize: 14, color: '#666', lineHeight: 1.7 }}>
-                    {d.texto}
-                  </p>
+                  {d.icone}
                 </div>
+                <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 10, letterSpacing: -0.3, color: '#0D0D0D' }}>
+                  {d.titulo}
+                </h3>
+                <p style={{ fontSize: 14, color: '#666', lineHeight: 1.7 }}>
+                  {d.texto}
+                </p>
               </SpotlightCard>
             </motion.div>
           ))}

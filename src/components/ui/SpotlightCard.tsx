@@ -1,15 +1,16 @@
 'use client'
-import { useRef, useState, MouseEvent } from 'react'
+import { useRef, useState, MouseEvent, CSSProperties } from 'react'
 
 interface SpotlightCardProps {
   children: React.ReactNode
-  spotlightColor?: string
+  style?: CSSProperties
+  className?: string
 }
 
-export function SpotlightCard({ children, spotlightColor = 'rgba(245,184,0,0.12)' }: SpotlightCardProps) {
+export function SpotlightCard({ children, style, className }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState({ x: 0, y: 0 })
-  const [opacity, setOpacity] = useState(0)
+  const [hovered, setHovered] = useState(false)
 
   function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
     const rect = cardRef.current?.getBoundingClientRect()
@@ -21,36 +22,37 @@ export function SpotlightCard({ children, spotlightColor = 'rgba(245,184,0,0.12)
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setOpacity(1)}
-      onMouseLeave={() => setOpacity(0)}
-      style={{ position: 'relative', overflow: 'hidden' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={className}
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
+        background: '#F0F0F0',
+        borderRadius: 16,
+        border: `1px solid ${hovered ? 'rgba(245,184,0,0.35)' : '#E8E8E8'}`,
+        transition: 'border-color 0.3s, box-shadow 0.3s',
+        boxShadow: hovered
+          ? '0 0 0 1px rgba(245,184,0,0.15), 0 8px 32px rgba(245,184,0,0.08)'
+          : '0 1px 4px rgba(0,0,0,0.04)',
+        ...style,
+      }}
     >
-      {/* spotlight */}
+      {/* spotlight radial que segue o cursor */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          opacity,
-          transition: 'opacity 0.3s',
           pointerEvents: 'none',
-          background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, ${spotlightColor}, transparent 60%)`,
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.4s',
+          background: `radial-gradient(400px circle at ${pos.x}px ${pos.y}px, rgba(245,184,0,0.18) 0%, rgba(245,184,0,0.04) 40%, transparent 70%)`,
           zIndex: 0,
         }}
       />
-      {/* border glow */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: opacity * 0.6,
-          transition: 'opacity 0.3s',
-          pointerEvents: 'none',
-          borderRadius: 'inherit',
-          background: `radial-gradient(200px circle at ${pos.x}px ${pos.y}px, rgba(245,184,0,0.25), transparent 70%)`,
-          zIndex: 0,
-        }}
-      />
-      <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {children}
+      </div>
     </div>
   )
 }
