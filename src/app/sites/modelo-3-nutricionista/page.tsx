@@ -318,7 +318,7 @@ export default function Modelo3Nutricionista() {
             <div style={{ borderRadius:'24px', overflow:'hidden', boxShadow:'0 16px 48px rgba(180,100,60,0.15)', border:'1.5px solid rgba(224,112,80,0.2)' }}>
               <div style={{ height:'340px', overflow:'hidden', position:'relative' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1559839914-17aae19cec71?w=700&q=85"
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=85"
                   alt="Camila Rocha — Nutricionista"
                   style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'top center', animation:'kenBurns 22s ease-in-out infinite' }}
                 />

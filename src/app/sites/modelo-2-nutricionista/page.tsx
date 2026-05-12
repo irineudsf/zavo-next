@@ -335,7 +335,7 @@ export default function Modelo2Nutricionista() {
             <div style={{ borderRadius:'12px', overflow:'hidden', border:'2px solid rgba(132,204,22,0.3)', animation:'borderAnim 3s ease infinite' }}>
               <div style={{ height:'340px', overflow:'hidden', position:'relative' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1559839914-17aae19cec71?w=700&q=85"
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=85"
                   alt="Vitória Santos — Nutricionista"
                   style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'top center', animation:'kenBurns 22s ease-in-out infinite' }}
                 />

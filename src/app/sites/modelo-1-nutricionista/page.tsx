@@ -385,7 +385,7 @@ export default function Modelo1Nutricionista() {
               boxShadow: '0 24px 64px rgba(26,71,42,0.2)',
             }}>
               <img
-                src="https://images.unsplash.com/photo-1559839914-17aae19cec71?w=700&q=85"
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=85"
                 alt="Dra. Ana Lima — Nutricionista"
                 style={{
                   position: 'absolute', inset: 0,
