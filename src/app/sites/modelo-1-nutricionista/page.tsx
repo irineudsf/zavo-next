@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from 'react'
 
-export const metadata = undefined
-
 export default function Modelo1Nutricionista() {
   const observerRef = useRef<IntersectionObserver | null>(null)
 
