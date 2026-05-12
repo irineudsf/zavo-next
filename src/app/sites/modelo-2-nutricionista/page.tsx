@@ -8,7 +8,7 @@ export default function Modelo2Nutricionista() {
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
       { threshold: 0.12 }
     )
-    document.querySelectorAll('.rev').forEach((el) => observer.observe(el))
+    document.querySelectorAll('.rev, .rev-l, .rev-r').forEach((el) => observer.observe(el))
 
     // Counter
     const counters = document.querySelectorAll('.cnt')

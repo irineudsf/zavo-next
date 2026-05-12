@@ -8,7 +8,7 @@ export default function Modelo3Nutricionista() {
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in')),
       { threshold: 0.12 }
     )
-    document.querySelectorAll('.fade').forEach((el) => obs.observe(el))
+    document.querySelectorAll('.fade, .fade-l, .fade-r').forEach((el) => obs.observe(el))
     return () => obs.disconnect()
   }, [])
 
