@@ -168,14 +168,18 @@ export default function Modelo2Nutricionista() {
       {/* Hero */}
       <section style={{
         minHeight: '100vh',
-        backgroundImage: 'linear-gradient(135deg, rgba(10,15,10,0.93) 0%, rgba(15,31,10,0.89) 50%, rgba(10,26,15,0.91) 100%), url(https://images.unsplash.com/photo-1512621776951-a57ef161c23b?w=1600&q=80)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
+        background: '#0a0f0a',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: '100px 24px 60px',
         position: 'relative', overflow: 'hidden',
       }}>
+        <img
+          src="https://images.unsplash.com/photo-1512621776951-a57ef161c23b?w=1600&q=80"
+          alt=""
+          aria-hidden="true"
+          style={{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center', animation:'kenBurns 20s ease-in-out infinite', zIndex:0 }}
+        />
+        <div style={{ position:'absolute', inset:0, background:'rgba(10,15,10,0.72)', zIndex:1 }} />
         {/* Animated dots */}
         {[
           { w:300, h:300, top:'10%', left:'5%', bg:'rgba(132,204,22,0.06)', delay:'0s' },
@@ -191,10 +195,11 @@ export default function Modelo2Nutricionista() {
             bottom:(d as Record<string,unknown>).bottom as string,
             background:d.bg,
             animationDelay:d.delay,
+            zIndex:2,
           }} />
         ))}
 
-        <div style={{ textAlign:'center', maxWidth:'820px', position:'relative', zIndex:1 }}>
+        <div style={{ textAlign:'center', maxWidth:'820px', position:'relative', zIndex:3 }}>
           <div className="pill" style={{ animation:'slideUp 0.6s ease 0.2s both' }}>
             🏆 + de 600 vidas transformadas
           </div>
@@ -330,7 +335,7 @@ export default function Modelo2Nutricionista() {
             <div style={{ borderRadius:'12px', overflow:'hidden', border:'2px solid rgba(132,204,22,0.3)', animation:'borderAnim 3s ease infinite' }}>
               <div style={{ height:'340px', overflow:'hidden', position:'relative' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=700&q=85"
+                  src="https://images.unsplash.com/photo-1559839914-17aae19cec71?w=700&q=85"
                   alt="Vitória Santos — Nutricionista"
                   style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'top center', animation:'kenBurns 22s ease-in-out infinite' }}
                 />
